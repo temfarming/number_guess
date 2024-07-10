@@ -9,10 +9,14 @@ def number_guess():
         print(f"이전 게임 플레이어 최고 시도 횟수: {before_attempts if before_attempts != float('inf') else '없음'}")
 
         while True:
+            try:                                            ## try - except 예외처리 추가 ##
                 num = int(input("숫자를 입력하세요.: "))
                 if num < 1 or num >100:
                     print("유효한 범위 내의 숫자를 입력하세요.")
                     continue
+            except ValueError:
+                print("유효한 숫자를 입력하세요.")
+                continue
 
                 attempts += 1
 
